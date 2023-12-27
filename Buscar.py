@@ -1,18 +1,16 @@
 
-"""
-Pragrama que busca 
-y muestra valores
-"""
+# Pragrama que busca 
+# y muestra valores
 
-class Buscar:
+class buscar:
 
 	def __init__(self, bbdd, tabla, columna, valor):
 
 		self.bbdd = sqlite.connect(bbdd)
 		self.cursor = self.bbdd.cursor()
-		self.instruccion = f"SELECT * FROM {tabla} WHERE {columna} = '{valor}'"
+		self.instruccion = f'SELECT * FROM {tabla} WHERE {columna} = "{valor}"'
 
-	def Ejecucion(self):
+	def ejecucion(self):
 
 		self.cursor.execute(self.instruccion)
 		self.datos = self.cursor.fetchall()
@@ -22,9 +20,9 @@ class Buscar:
 
 		return self.datos
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
 	import sqlite3 as sqlite
 
-	buscar = Buscar("BBDD.db", "Informe", "Nombre", "Jonathan")
-	print(buscar.Ejecucion())
+	buscar = buscar('BBDD.db', 'Informe', 'Nombre', 'Jonathan')
+	print(buscar.ejecucion())

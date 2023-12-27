@@ -1,11 +1,8 @@
 
-"""
-Programa que muestra 
-los datos de las columnas 
-en orden
-"""
+# Programa que muestra los
+# datos de las columnas en orden
 
-class Orden_Columnas:
+class orden_columnas:
 
 	def __init__(self, bbdd, tabla, campo):
 
@@ -13,7 +10,7 @@ class Orden_Columnas:
 		self.cursor = self.bbdd.cursor()
 		self.instruccion = f"SELECT * FROM {tabla} ORDER BY {campo}"
 
-	def Leer_Orden(self):
+	def leer_orden(self):
 		
 		self.cursor.execute(self.instruccion)
 		self.datos = self.cursor.fetchall()
@@ -27,5 +24,5 @@ if __name__ == "__main__":
 
 	import sqlite3 as sqlite
 
-	orden_columnas = Orden_Columnas("BBDD.db", "Informe", "Nombre")
-	print(orden_columnas.Leer_Orden())
+	orden_columnas = orden_columnas("BBDD.db", "Informe", "Nombre")
+	print(orden_columnas.leer_orden())
